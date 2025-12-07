@@ -17,6 +17,8 @@ Our topic is unique as it employs RLHF as a technique for bias mitigation. While
 
 ## Baseline
 
+download database with `git lfs pull`
+
 Run `baseline.ipynb`
 
 ## Baseline Evaluation
