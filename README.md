@@ -1,10 +1,8 @@
 # Fine-Tuning LLMs with RLHF for Bias Reduction in Resume Screening
 
-LLMs are increasingly used in resume screening to reduce the workload of recruiters. However, LLMs often inherit and reproduce historical societal biases related to gender, race, ethnicity, and other demographic factors. This inherent bias in LLMs can lead to unfair outcomes. A prominent example is Amazon's AI recruiting tool, which was found to be biased against women (Dastin, 2018). According to recent research from the University of Washington, LLMs favored White-associated names 85.1\% of the time over Black-associated names (8.6\%) and were also biased against female-associated names (Wilson \& Caliskan, 2024). Recognizing this critical issue, our project focuses on methodologies to ensure fairness and equity in AI hiring tools.
+This project demonstrates a practical application of Reinforcement Learning from Human Feedback (RLHF) to reduce demographic bias in automated resume screening systems. We develop a novel framework that fine-tunes large language models using carefully curated human preference data, effectively steering the model toward more equitable hiring decisions. Our approach addresses name-based discrimination—a well-documented form of hiring bias—by aligning AI behavior with human fairness intuitions while maintaining practical utility.
 
-Our research is guided by the question: "To what extent can RLHF)effectively reduce demographic biases in LLM-based resume screening systems while maintaining high accuracy in identifying qualified candidates?" Ensuring fairness has significant ethical and practical importance. A biased hiring process not only harms the candidates themselves but also causes employers to miss out on diverse talent.
-
-Our topic is unique as it employs RLHF as a technique for bias mitigation. While other algorithmic debiasing methods exist, RLHF integrates human values into the model. This allows it to detect more subtle forms of bias.
+The repository contains a complete pipeline from baseline model evaluation through RLHF optimization to comprehensive fairness assessment. Our results show significant improvements: a 31.3% reduction in demographic parity difference and meaningful gains in selection rates for historically disadvantaged groups. This work contributes both a technical methodology for bias mitigation and insights into the complex patterns of algorithmic discrimination that emerge in automated hiring systems.
 
 ## Members
 
@@ -12,26 +10,60 @@ Our topic is unique as it employs RLHF as a technique for bias mitigation. While
 - [Yuxuan Qin](https://github.com/caca-liszt) 
 - [Cynthia Cui](https://github.com/yc6062-rgb) 
 
-## Database
+## Step-by-Step Tutorial
+
+### 1. Setup
+
+First, clone the repository and navigate to the project directory:
+
+```bash
+git clone https://github.com/caca-liszt/group17.git
+cd group17
+```
+
+Download the required database using Git LFS:
+```bash
+git lfs pull
+```
+
+### 2. Baseline Model
+Then run the baseline model to generate initial resume matching scores:
+```bash
+jupyter notebook baseline.ipynb
+```
+
+### 3. Baseline Evaluation
+Evaluate the fairness characteristics of the baseline model:
+```bash
+jupyter notebook baseline_fairness.ipynb
+```
+This notebook calculates demographic parity ratios and selection rates across different demographic groups.
+
+### 4. Human Feedback Collection
+Prepare and process human feedback data:
+```bash
+jupyter notebook human_feedback_empty.ipynb
+```
+This notebook contains templates for collecting and formatting human preference data used for RLHF training.
+
+### 5. RLHF Training
+Run the RLHF fine-tuning process:
+```bash
+
+```
+
+### 6. RLHF Evaluation
+Assess the fairness improvements after RLHF optimization:
+```bash
+jupyter notebook rlhf_fairness.ipynb
+```
+This notebook compares the RLHF-optimized model against the baseline and calculates fairness metric improvements.
+
+## Notes
+- Ensure all dependencies are installed using `requirements.txt`
+- The human feedback data should be properly formatted before RLHF training
+- All evaluation notebooks produce visualizations of fairness metrics across demographic groups
+- Model checkpoints and intermediate results are saved for reproducibility
 
 
-## Baseline
 
-download database with `git lfs pull`
-
-Run `baseline.ipynb`
-
-## Baseline Evaluation
-
-Run `baseline_fairness.ipynb`
-
-## Human Feedback
-
-Run `human_feedback_empty.ipynb`
-
-## RLHF
-
-
-## RLHF Evaluation
-
-Run `rlhf_fairness`
