@@ -52,7 +52,7 @@ This notebook contains templates for collecting and formatting human preference 
 ### 5. Preference Model Training
 Train the supervised ranking model using the human preference data:
 ```bash
-# Run the training script for the preference model
+jupyter notebook preference_model.ipynb
 ```
 
 ### 6. Fairness Evaluation
